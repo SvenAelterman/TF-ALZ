@@ -27,7 +27,9 @@ module "enterprise_scale" {
   deploy_online_landing_zones = false
   deploy_sap_landing_zones    = false
 
-  subscription_id_identity     = "05bca35e-0dfa-455a-a4eb-9f9ea72df723" # Quick Tests - Throwaways (10)
+  # Setting subscription ID here is not a recommnded approach. Create another azurerm provider alias instead.
+  subscription_id_identity = "05bca35e-0dfa-455a-a4eb-9f9ea72df723" # Quick Tests - Throwaways (10)
+
   subscription_id_management   = data.azurerm_client_config.management.subscription_id
   subscription_id_connectivity = data.azurerm_client_config.connectivity.subscription_id
 
