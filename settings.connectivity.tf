@@ -4,20 +4,20 @@ locals {
     settings = {
       hub_networks = [
         {
-          enabled = false
+          enabled = true
           config = {
             address_space                = ["10.100.0.0/16", ]
             location                     = local.location
-            link_to_ddos_protection_plan = true
+            link_to_ddos_protection_plan = false
             dns_servers                  = []
             bgp_community                = ""
             subnets                      = []
             virtual_network_gateway = {
-              enabled = false
+              enabled = true
               config = {
                 address_prefix           = "10.100.1.0/24"
                 gateway_sku_expressroute = ""
-                gateway_sku_vpn          = ""
+                gateway_sku_vpn          = "VpnGw2AZ"
                 advanced_vpn_settings = {
                   enable_bgp                       = null
                   active_active                    = null
@@ -57,7 +57,7 @@ locals {
       ddos_protection_plan = {
         enabled = false
         config = {
-          location = "eastus"
+          location = local.location
         }
       }
       dns = {

@@ -12,7 +12,7 @@ variable "root_name" {
 
 variable "deploy_connectivity_resources" {
   type    = bool
-  default = false
+  default = true
 }
 
 variable "deploy_identity_resources" {
