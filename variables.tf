@@ -20,6 +20,8 @@ variable "deploy_identity_resources" {
   default = false
 }
 
+# This would be the primary location.
+# Additional (secondary) lcoations can be specified as additional variables.
 variable "default_location" {
   type    = string
   default = "eastus"
