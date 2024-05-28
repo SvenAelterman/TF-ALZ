@@ -5,7 +5,7 @@ resource "azurerm_local_network_gateway" "lng" {
   # Specifying an aliased provider with each resource is critical, otherwise it will default to the unaliased provider.bgp_settings {
   provider = azurerm.connectivity
 
-  name                = "Contoso-Datacenter-prod-lng-eastus-01"
+  name                = "${var.root_id}-Datacenter-prod-lng-${lower(var.default_location)}-01"
   resource_group_name = local.virtual_network_by_location[local.location].resource_group_name
   location            = local.location
   gateway_address     = "12.13.14.15"
@@ -15,7 +15,7 @@ resource "azurerm_local_network_gateway" "lng" {
 resource "azurerm_virtual_network_gateway_connection" "datacenter_connection" {
   provider = azurerm.connectivity
 
-  name                = "Contoso-Datacenter-prod-conn-eastus-01"
+  name                = "${var.root_id}-Datacenter-prod-conn-${lower(var.default_location)}-01"
   location            = local.location
   resource_group_name = local.virtual_network_gateway_by_location[local.location].resource_group_name
 
